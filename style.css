@@ -1,0 +1,32 @@
+main {
+    width: 30%;
+    background-color: lightgray;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+div {
+    margin: 1%;
+}
+
+fieldset {
+    width: 60%;
+    border-radius: 6px;
+    border-style: solid;
+    /* margin-top: 5%; */
+}
+
+fieldset, input {
+    background-color: lightcyan;
+}
+
+input {
+    width: 90%;
+    border-width: 0px;
+}
+
+button {
+    font-weight: bold;
+    font-size: 18px;
+    padding: 1%;
+}
