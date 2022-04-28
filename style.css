@@ -1,19 +1,20 @@
 main {
-    width: 30%;
+    width: 716px;
     background-color: lightgray;
     border-radius: 8px;
-    padding: 5px;
+    padding: 23px;
+    margin: auto;
 }
 
-div {
+/* div {
     margin: 1%;
-}
+} */
 
 fieldset {
-    width: 60%;
+    width: 65%;
     border-radius: 6px;
     border-style: solid;
-    /* margin-top: 5%; */
+    margin: auto;
 }
 
 fieldset, input {
@@ -25,8 +26,25 @@ input {
     border-width: 0px;
 }
 
-button {
+.btn {
     font-weight: bold;
     font-size: 18px;
-    padding: 1%;
+    /* padding: 1%; */
+    margin: 4px;
+    width: 18%;
+    height: 45px;
+}
+
+.sign {
+    background-color: #29d6ce;
+}
+
+.digit {
+    background-color: #bbd1ee;
+}
+
+.btn.equal {
+    height: 90px;
+    float: right;
+    background-color: #6bb86b;
 }
