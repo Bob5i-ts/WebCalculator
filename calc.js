@@ -50,3 +50,12 @@ $('.sign').click(function () {
     }
 });
 
+$('.equal').click(function () {
+    if (n1() && n2()) {
+        equal('=');
+        result(getResult());
+    }
+});
+
+$('.clear').click(clear);
+
