@@ -59,3 +59,36 @@ $('.equal').click(function () {
 
 $('.clear').click(clear);
 
+$('.del').click(function () {
+    if (result()) {
+        equal('');
+        result('');
+    }
+    else if (n2()) {
+        n2(n2().slice(0, n2().length - 1));
+    }
+    else if (sign()) {
+        sign('');
+    }
+    else {
+        n1(n1().slice(0, n1().length - 1));
+    }
+});
+
+$('.dot').click(function () {
+    if (!equal()) {
+        if (!n1()) {
+            n1('0.');
+        }
+        else if (!n1().includes('.') && !n2()) {
+            n1(n1() + '.');
+        }
+        else if (sign() && !n2()) {
+            n2('0.');
+        }
+        else if (n2() && !n2().includes('.')) {
+            n2(n2() + '.');
+        }
+    }
+});
+
