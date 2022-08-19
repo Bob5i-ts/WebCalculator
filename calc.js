@@ -92,3 +92,16 @@ $('.dot').click(function () {
     }
 });
 
+$('.pos-neg').click(function () {
+    if (!equal()) {
+        if (!sign()) {
+            n1().startsWith('-')
+                ? n1(n1().slice(1))
+                : n1('-' + n1());
+        } else {
+            n2().startsWith('-')
+                ? n2(n2().slice(1))
+                : n2('-' + n2());
+        }
+    }
+});
