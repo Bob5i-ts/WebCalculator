@@ -14,9 +14,9 @@ function clear() {
 
 function getResult() {
     if (sign() == '/' && n2() == '0') {
-        return 'Can not divide by zero';
+        return 'Cannot divide by zero';
     }
-    return eval(n1() + sign() + n2());
+    return eval(n1() + sign() + ' ' + n2());
 }
 
 $('.digit').click(function () {
