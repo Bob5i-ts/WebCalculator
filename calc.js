@@ -80,7 +80,7 @@ $('.dot').click(function () {
         if (!n1()) {
             n1('0.');
         }
-        else if (!n1().includes('.') && !n2()) {
+        else if (!n1().includes('.') && !sign()) {
             n1(n1() + '.');
         }
         else if (sign() && !n2()) {
