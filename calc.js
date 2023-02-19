@@ -33,11 +33,9 @@ $('.sign').click(function () {
     if (!n1()) {
         n1('0');
         sign(keyVal);
-    }
-    else if (n1() && !n2()) {
+    } else if (n1() && !n2()) {
         sign(keyVal);
-    }
-    else if (n2() && !equal()) {
+    } else if (n2() && !equal()) {
         n1(getResult());
         sign(keyVal);
         n2('');
@@ -62,14 +60,11 @@ $('.del').click(function () {
     if (result()) {
         equal('');
         result('');
-    }
-    else if (n2()) {
+    } else if (n2()) {
         n2(n2().slice(0, n2().length - 1));
-    }
-    else if (sign()) {
+    } else if (sign()) {
         sign('');
-    }
-    else {
+    } else {
         n1(n1().slice(0, n1().length - 1));
     }
 });
@@ -78,14 +73,11 @@ $('.dot').click(function () {
     if (!equal()) {
         if (!n1()) {
             n1('0.');
-        }
-        else if (!n1().includes('.') && !sign()) {
+        } else if (!n1().includes('.') && !sign()) {
             n1(n1() + '.');
-        }
-        else if (sign() && !n2()) {
+        } else if (sign() && !n2()) {
             n2('0.');
-        }
-        else if (n2() && !n2().includes('.')) {
+        } else if (n2() && !n2().includes('.')) {
             n2(n2() + '.');
         }
     }
