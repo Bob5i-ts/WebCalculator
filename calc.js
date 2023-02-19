@@ -41,11 +41,10 @@ $('.sign').click(function () {
         n1(getResult());
         sign(keyVal);
         n2('');
-    }
-    else if (equal()) {
-        let res = result();
+    } else if (equal() && !result().includes('zero')) {
+        let rsl = result();
         clear();
-        n1(res);
+        n1(rsl);
         sign(keyVal);
     }
 });
