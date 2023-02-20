@@ -32,10 +32,16 @@ input {
     font-weight: bold;
     font-size: 18px;
     /* padding: 1%; */
-    margin: 8px;
+    margin: 5px;
     width: 80px;
-    height: 50px;
+    height: 60px;
     border-radius: 6px;
+    box-shadow: inset -3px -3px 3px 0px #88888882;
+    border-width: 1px;
+}
+
+.btn:hover {
+    background-image: linear-gradient(#26262626, #3636364d);
 }
 
 .sign {
