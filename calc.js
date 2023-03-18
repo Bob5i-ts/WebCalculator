@@ -12,6 +12,17 @@ function clear() {
     result('');
 }
 
+function sanitize() {
+    while ((n1().includes('.') && n1().endsWith('0')) || n1().endsWith('.')) {
+        n1(n1().slice(0, n1().length - 1))
+    }
+    while ((n2().includes('.') && n2().endsWith('0')) || n2().endsWith('.')) {
+        n2(n2().slice(0, n2().length - 1))
+    }
+    if (n1() == '-') { n1('0') }
+    if (n2() == '-') { n2('0') }
+}
+
 function getResult() {
     if (sign() == '/' && n2() == '0') {
         return 'Cannot divide by zero';
@@ -30,6 +41,7 @@ $('.digit').click(function () {
 
 $('.sign').click(function () {
     const keyVal = $(this).text();
+    sanitize();
     if (!n1()) {
         n1('0');
         sign(keyVal);
@@ -48,6 +60,7 @@ $('.sign').click(function () {
 });
 
 $('.equal').click(function () {
+    sanitize();
     if (n1() && n2()) {
         equal('=');
         result(getResult());
