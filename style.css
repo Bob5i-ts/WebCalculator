@@ -18,6 +18,7 @@ fieldset, input {
 }
 
 input {
+    font-family: 'Press Start 2P', monospace;
     font-size: large;
     width: 90%;
     border-width: 0;
