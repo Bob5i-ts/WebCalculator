@@ -1,30 +1,35 @@
 main {
-    width: 700px;
-    background-color: lightgray;
-    border-radius: 8px;
-    padding: 25px;
+    width: 600px;
+    background-color: rgb(198, 198, 198);
+    border-radius: 10px;
+    padding: 25px 0;
     margin: auto;
 }
 
-fieldset {
-    width: 65%;
+.display {
+    width: 472px;
     border-radius: 6px;
     border-style: solid;
-    margin: auto;
+    margin: 0 auto 18px auto;
 }
 
-fieldset, input {
+.display, input {
     background-color: lightcyan;
 }
 
 input {
     font-family: 'Press Start 2P', monospace;
     font-size: large;
-    width: 90%;
+    width: 100%;
     border-width: 0;
+    text-shadow: 2px 2px rgba(158, 158, 158, 0.35);
 }
 
 .keypad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 60px;
+    gap: 10px;
     max-width: 500px;
     margin: auto;
 }
@@ -32,29 +37,28 @@ input {
 .btn {
     font-weight: bold;
     font-size: 18px;
-    /* padding: 1%; */
-    margin: 5px;
-    width: 80px;
-    height: 60px;
     border-radius: 6px;
-    box-shadow: inset -3px -3px 3px 0px #88888882;
-    border-width: 1px;
+    box-shadow: inset -2px -2px 3px 0px #8888888e;
+    border: 1px solid rgb(100, 100, 100)
 }
-
 .btn:hover {
-    background-image: linear-gradient(#26262626, #3636364d);
-}
-
-.sign {
-    background-color: #29d6ce;
+    background-image: linear-gradient(#64646426, #1e1e1e33);
 }
 
 .digit {
     background-color: #bbd1ee;
 }
 
+.sign {
+    background-color: #29d6ce;
+}
+
+.del, .clear {
+    background-color: #dcaaaa;
+}
+
 .equal {
-    height: 116px;
-    float: right;
+    grid-column: 5;
+    grid-row: 3/5;
     background-color: #6bb86b;
 }
