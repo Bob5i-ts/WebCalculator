@@ -14,13 +14,13 @@ function clear() {
 
 function sanitize() {
     while ((n1().includes('.') && n1().endsWith('0')) || n1().endsWith('.')) {
-        n1(n1().slice(0, n1().length - 1))
+        n1(n1().slice(0, -1));
     }
     while ((n2().includes('.') && n2().endsWith('0')) || n2().endsWith('.')) {
-        n2(n2().slice(0, n2().length - 1))
+        n2(n2().slice(0, -1));
     }
-    if (n1() == '-') { n1('0') }
-    if (n2() == '-') { n2('0') }
+    if (n1() == '-') n1('0');
+    if (n2() == '-') n2('0');
 }
 
 function getResult() {
@@ -74,11 +74,11 @@ $('.del').click(function () {
         equal('');
         result('');
     } else if (n2()) {
-        n2(n2().slice(0, n2().length - 1));
+        n2(n2().slice(0, -1));
     } else if (sign()) {
         sign('');
     } else {
-        n1(n1().slice(0, n1().length - 1));
+        n1(n1().slice(0, -1));
     }
 });
 
