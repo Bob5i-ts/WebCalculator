@@ -43,13 +43,13 @@ function clear() {
 
 function sanitize() {
     while ((n1().includes('.') && n1().endsWith('0')) || n1().endsWith('.')) {
-        n1(n1().slice(0, n1().length - 1))
+        n1(n1().slice(0, -1));
     }
     while ((n2().includes('.') && n2().endsWith('0')) || n2().endsWith('.')) {
-        n2(n2().slice(0, n2().length - 1))
+        n2(n2().slice(0, -1));
     }
-    if (n1() == '-') { n1('0') }
-    if (n2() == '-') { n2('0') }
+    if (n1() == '-') n1('0');
+    if (n2() == '-') n2('0');
 }
 
 function getResult() {
@@ -59,36 +59,36 @@ function getResult() {
     return eval(n1() + sign() + ' ' + n2());
 }
 
-$('.digit').click(function () {
-    const keyVal = $(this).text();
+digitButtons.forEach(btn => btn.addEventListener('click', function (ev) {
+    const btnVal = ev.target.textContent;
     if (!sign()) {
-        n1(n1() + keyVal);
+        n1(n1() + btnVal);
     } else if (!equal()) {
-        n2(n2() + keyVal);
+        n2(n2() + btnVal);
     }
-});
+}));
 
-$('.sign').click(function () {
-    const keyVal = $(this).text();
+signButtons.forEach(btn => btn.addEventListener('click', function (ev) {
+    const btnVal = ev.target.textContent;
     sanitize();
     if (!n1()) {
         n1('0');
-        sign(keyVal);
+        sign(btnVal);
     } else if (n1() && !n2()) {
-        sign(keyVal);
+        sign(btnVal);
     } else if (n2() && !equal()) {
         n1(getResult());
-        sign(keyVal);
+        sign(btnVal);
         n2('');
     } else if (equal() && !result().includes('zero')) {
         let rsl = result();
         clear();
         n1(rsl);
-        sign(keyVal);
+        sign(btnVal);
     }
-});
+}));
 
-$('.equal').click(function () {
+equalBtn.addEventListener('click', function () {
     sanitize();
     if (n1() && n2()) {
         equal('=');
@@ -96,22 +96,22 @@ $('.equal').click(function () {
     }
 });
 
-$('.clear').click(clear);
+clearBtn.addEventListener('click', clear);
 
-$('.del').click(function () {
+delBtn.addEventListener('click', function () {
     if (result()) {
         equal('');
         result('');
     } else if (n2()) {
-        n2(n2().slice(0, n2().length - 1));
+        n2(n2().slice(0, -1));
     } else if (sign()) {
         sign('');
     } else {
-        n1(n1().slice(0, n1().length - 1));
+        n1(n1().slice(0, -1));
     }
 });
 
-$('.dot').click(function () {
+dotBtn.addEventListener('click', function () {
     if (!equal()) {
         if (!n1()) {
             n1('0.');
@@ -125,7 +125,7 @@ $('.dot').click(function () {
     }
 });
 
-$('.pos-neg').click(function () {
+negateBtn.addEventListener('click', function () {
     if (!equal()) {
         if (!sign()) {
             n1().startsWith('-')
