@@ -4,6 +4,14 @@ const signInput = document.getElementById('sign');
 const equalInput = document.getElementById('equal');
 const resultInput = document.getElementById('result');
 
+const digitButtons = [...document.getElementsByClassName('digit')];
+const signButtons = [...document.getElementsByClassName('sign')];
+const equalBtn = document.getElementsByClassName('equal')[0];
+const clearBtn = document.getElementsByClassName('clear')[0];
+const delBtn = document.getElementsByClassName('del')[0];
+const dotBtn = document.getElementsByClassName('dot')[0];
+const negateBtn = document.getElementsByClassName('negate')[0];
+
 
 function clear() {
     n1('');
