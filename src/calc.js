@@ -1,8 +1,9 @@
-const n1 = (...x) => $('#num1').val(...x);
-const n2 = (...x) => $('#num2').val(...x);
-const sign = (...x) => $('#sign').val(...x);
-const equal = (...x) => $('#equal').val(...x);
-const result = (...x) => $('#result').val(...x);
+const n1Input = document.getElementById('num1');
+const n2Input = document.getElementById('num2');
+const signInput = document.getElementById('sign');
+const equalInput = document.getElementById('equal');
+const resultInput = document.getElementById('result');
+
 
 function clear() {
     n1('');
