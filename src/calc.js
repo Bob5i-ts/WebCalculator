@@ -12,6 +12,26 @@ const delBtn = document.getElementsByClassName('del')[0];
 const dotBtn = document.getElementsByClassName('dot')[0];
 const negateBtn = document.getElementsByClassName('negate')[0];
 
+const n1 = (x) => {
+    if (x == undefined) return n1Input.value;
+    n1Input.value = x;
+};
+const n2 = (x) => {
+    if (x == undefined) return n2Input.value;
+    n2Input.value = x;
+};
+const sign = (x) => {
+    if (x == undefined) return signInput.value;
+    signInput.value = x;
+};
+const equal = (x) => {
+    if (x == undefined) return equalInput.value;
+    equalInput.value = x;
+};
+const result = (x) => {
+    if (x == undefined) return resultInput.value;
+    resultInput.value = x;
+};
 
 function clear() {
     n1('');
