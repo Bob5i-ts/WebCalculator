@@ -24,10 +24,18 @@ function sanitize() {
 }
 
 function getResult() {
-    if (sign() == '/' && n2() == '0') {
+    const x = new Decimal(n1());
+    const y = new Decimal(n2());
+    const opr = sign();
+    if (opr == '/' && y == '0') {
         return 'Cannot divide by zero';
     }
-    return eval(n1() + sign() + ' ' + n2());
+    if (opr == '+') return x.plus(y);
+    if (opr == '-') return x.minus(y);
+    if (opr == '*') return x.times(y);
+    if (opr == '/') return x.div(y);
+    if (opr == '^') return x.pow(y);
+    if (opr == 'mod') return x.mod(y);
 }
 
 $('.digit').click(function () {
