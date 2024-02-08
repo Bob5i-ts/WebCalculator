@@ -49,16 +49,20 @@ input {
     background-color: #bbd1ee;
 }
 
-.sign {
+.sign, .percent, .sqrt {
     background-color: #29d6ce;
 }
 
 .del, .clear {
     background-color: #dcaaaa;
 }
+.clear {
+    grid-column: 5;
+    grid-row: 2/4;
+}
 
 .equal {
     grid-column: 5;
-    grid-row: 3/5;
+    grid-row: 4/6;
     background-color: #6bb86b;
 }
