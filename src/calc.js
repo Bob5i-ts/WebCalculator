@@ -77,6 +77,18 @@ $('.percent').click(function () {
     }
 });
 
+$('.sqrt').click(function () {
+    if (!result()) {
+        if (n1() && !n1().includes('zero') && !sign()) {
+            const x = new Decimal(n1());
+            n1(x.sqrt());
+        } else if (n2() && sign()) {
+            const y = new Decimal(n2());
+            n2(y.sqrt());
+        }
+    }
+});
+
 $('.equal').click(function () {
     sanitize();
     if (n1() && n2()) {
