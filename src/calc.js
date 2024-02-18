@@ -67,6 +67,16 @@ $('.sign').click(function () {
     }
 });
 
+$('.percent').click(function () {
+    const x = new Decimal(n1() || 0);
+    if (n1() && !n1().includes('zero') && !sign()) {
+        n1(x.div(100));
+    } else if (n2() && !result()) {
+        const y = new Decimal(n2());
+        n2(x.times(y.div(100)));
+    }
+});
+
 $('.equal').click(function () {
     sanitize();
     if (n1() && n2()) {
