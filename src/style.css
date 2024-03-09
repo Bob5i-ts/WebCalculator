@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url(../libs/PressStart2P-Regular.ttf);
+}
+
 main {
     width: 600px;
     background-color: rgb(198, 198, 198);
