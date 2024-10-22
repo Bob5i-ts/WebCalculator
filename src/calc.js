@@ -1,14 +1,12 @@
 const n1 = (...x) => $('#num1').val(...x);
 const n2 = (...x) => $('#num2').val(...x);
 const sign = (...x) => $('#sign').val(...x);
-const equal = (...x) => $('#equal').val(...x);
 const result = (...x) => $('#result').val(...x);
 
 function clear() {
     n1('');
     n2('');
     sign('');
-    equal('');
     result('');
 }
 
@@ -42,7 +40,7 @@ $('.digit').click(function () {
     const keyVal = $(this).text();
     if (!sign()) {
         n1(n1() + keyVal);
-    } else if (!equal()) {
+    } else if (!result()) {
         n2(n2() + keyVal);
     }
 });
@@ -55,12 +53,12 @@ $('.sign').click(function () {
         sign(keyVal);
     } else if (n1() && !n2()) {
         sign(keyVal);
-    } else if (n2() && !equal()) {
+    } else if (n2() && !result()) {
         n1(getResult());
         sign(keyVal);
         n2('');
-    } else if (equal() && !result().includes('zero')) {
-        let rsl = result();
+    } else if (result() && !result().includes('zero')) {
+        let rsl = result().slice(2);
         clear();
         n1(rsl);
         sign(keyVal);
@@ -92,8 +90,7 @@ $('.sqrt').click(function () {
 $('.equal').click(function () {
     sanitize();
     if (n1() && n2()) {
-        equal('=');
-        result(getResult());
+        result('= ' + getResult());
     }
 });
 
@@ -101,7 +98,6 @@ $('.clear').click(clear);
 
 $('.del').click(function () {
     if (result()) {
-        equal('');
         result('');
     } else if (n2()) {
         n2(n2().slice(0, -1));
@@ -113,7 +109,7 @@ $('.del').click(function () {
 });
 
 $('.dot').click(function () {
-    if (!equal()) {
+    if (!result()) {
         if (!n1()) {
             n1('0.');
         } else if (!n1().includes('.') && !sign()) {
@@ -126,8 +122,8 @@ $('.dot').click(function () {
     }
 });
 
-$('.pos-neg').click(function () {
-    if (!equal()) {
+$('.negate').click(function () {
+    if (!result()) {
         if (!sign()) {
             n1().startsWith('-')
                 ? n1(n1().slice(1))
