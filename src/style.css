@@ -61,7 +61,7 @@ input {
 .del, .clear {
     background-color: #dcaaaa;
 }
-.clear {
+.plus {
     grid-column: 5;
     grid-row: 2/4;
 }
