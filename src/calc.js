@@ -39,8 +39,12 @@ function getResult() {
 $('.digit').click(function () {
     const keyVal = $(this).text();
     if (!sign()) {
+        if (/^-?0$/.test(n1()) && keyVal == 0) return;
+        if (/^-?0$/.test(n1()) && keyVal != 0) n1(n1().replace('0',''));
         n1(n1() + keyVal);
     } else if (!result()) {
+        if (/^-?0$/.test(n2()) && keyVal == 0) return;
+        if (/^-?0$/.test(n2()) && keyVal != 0) n2(n2().replace('0',''));
         n2(n2() + keyVal);
     }
 });
