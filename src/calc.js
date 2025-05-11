@@ -36,16 +36,18 @@ function getResult() {
     if (opr == 'mod') return x.mod(y);
 }
 
+function inputNum(num, key) {
+    let x = num();
+    if (/^-?0$/.test(x) && key == '0') return;
+    if (/^-?0$/.test(x) && key != '0') x = x.replace('0', '');
+    num(x + key);
+}
 $('.digit').click(function () {
     const keyVal = $(this).text();
     if (!sign()) {
-        if (/^-?0$/.test(n1()) && keyVal == 0) return;
-        if (/^-?0$/.test(n1()) && keyVal != 0) n1(n1().replace('0',''));
-        n1(n1() + keyVal);
+        inputNum(n1, keyVal);
     } else if (!result()) {
-        if (/^-?0$/.test(n2()) && keyVal == 0) return;
-        if (/^-?0$/.test(n2()) && keyVal != 0) n2(n2().replace('0',''));
-        n2(n2() + keyVal);
+        inputNum(n2, keyVal);
     }
 });
 
