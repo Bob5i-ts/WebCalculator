@@ -128,16 +128,18 @@ $('.dot').click(function () {
     }
 });
 
+function toggleMinus(num) {
+    const x = num();
+    x.startsWith('-')
+        ? num(x.slice(1))
+        : num('-' + x);
+}
 $('.negate').click(function () {
     if (!result()) {
         if (!sign()) {
-            n1().startsWith('-')
-                ? n1(n1().slice(1))
-                : n1('-' + n1());
+            toggleMinus(n1);
         } else {
-            n2().startsWith('-')
-                ? n2(n2().slice(1))
-                : n2('-' + n2());
+            toggleMinus(n2);
         }
     }
 });
