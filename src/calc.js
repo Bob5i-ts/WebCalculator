@@ -42,17 +42,18 @@ function inputNum(num, key) {
     if (/^-?0$/.test(x) && key != '0') x = x.replace('0', '');
     num(x + key);
 }
-$('.digit').click(function () {
     const keyVal = $(this).text();
+function digitHandler() {
     if (!sign()) {
         inputNum(n1, keyVal);
     } else if (!result()) {
         inputNum(n2, keyVal);
     }
-});
+}
+$('.digit').click(digitHandler);
 
-$('.sign').click(function () {
     const keyVal = $(this).text();
+function oprHandler() {
     sanitize();
     if (!n1()) {
         n1('0');
@@ -69,9 +70,10 @@ $('.sign').click(function () {
         n1(rsl);
         sign(keyVal);
     }
-});
+}
+$('.sign').click(oprHandler);
 
-$('.percent').click(function () {
+function percentHandler() {
     const x = new Decimal(n1() || 0);
     if (n1() && !n1().includes('zero') && !sign()) {
         n1(x.div(100));
@@ -79,9 +81,10 @@ $('.percent').click(function () {
         const y = new Decimal(n2());
         n2(x.times(y.div(100)));
     }
-});
+}
+$('.percent').click(percentHandler);
 
-$('.sqrt').click(function () {
+function sqrtHandler() {
     if (!result()) {
         if (n1() && !n1().includes('zero') && !sign()) {
             const x = new Decimal(n1());
@@ -91,18 +94,20 @@ $('.sqrt').click(function () {
             n2(y.sqrt());
         }
     }
-});
+}
+$('.sqrt').click(sqrtHandler);
 
-$('.equal').click(function () {
+function equalHandler() {
     sanitize();
     if (n1() && n2()) {
         result('= ' + getResult());
     }
-});
+}
+$('.equal').click(equalHandler);
 
 $('.clear').click(clear);
 
-$('.del').click(function () {
+function delHandler() {
     if (result()) {
         result('');
     } else if (n2()) {
@@ -112,9 +117,10 @@ $('.del').click(function () {
     } else {
         n1(n1().slice(0, -1));
     }
-});
+}
+$('.del').click(delHandler);
 
-$('.dot').click(function () {
+function dotHandler() {
     if (!result()) {
         if (!n1()) {
             n1('0.');
@@ -126,7 +132,8 @@ $('.dot').click(function () {
             n2(n2() + '.');
         }
     }
-});
+}
+$('.dot').click(dotHandler);
 
 function toggleMinus(num) {
     const x = num();
@@ -134,7 +141,7 @@ function toggleMinus(num) {
         ? num(x.slice(1))
         : num('-' + x);
 }
-$('.negate').click(function () {
+function negateHandler() {
     if (!result()) {
         if (!sign()) {
             toggleMinus(n1);
@@ -142,4 +149,6 @@ $('.negate').click(function () {
             toggleMinus(n2);
         }
     }
-});
+}
+$('.negate').click(negateHandler);
+
