@@ -42,8 +42,8 @@ function inputNum(num, key) {
     if (/^-?0$/.test(x) && key != '0') x = x.replace('0', '');
     num(x + key);
 }
-    const keyVal = $(this).text();
-function digitHandler() {
+function digitHandler(key) {
+    const keyVal = $(this).text() || key;
     if (!sign()) {
         inputNum(n1, keyVal);
     } else if (!result()) {
@@ -52,8 +52,8 @@ function digitHandler() {
 }
 $('.digit').click(digitHandler);
 
-    const keyVal = $(this).text();
-function oprHandler() {
+function oprHandler(key) {
+    const keyVal = $(this).text() || key;
     sanitize();
     if (!n1()) {
         n1('0');
@@ -152,3 +152,32 @@ function negateHandler() {
 }
 $('.negate').click(negateHandler);
 
+$(document).keydown(function (ev) {
+    ev.preventDefault();
+    let key = ev.key;
+    if (!isNaN(key) && key !== ' ') {
+        digitHandler(key);
+    } else if (['+', '-', '*', '/', '^', 'a', 's', 'x', 'd', 'e', 'm'].includes(key)) {
+        if (key == 'a') key = '+';
+        else if (key == 's') key = '-';
+        else if (key == 'x') key = '*';
+        else if (key == 'd') key = '/';
+        else if (key == 'e') key = '^';
+        else if (key == 'm') key = 'mod';
+        oprHandler(key);
+    } else if (key == 'Backspace') {
+        delHandler();
+    } else if (['Escape', 'c', 'Delete'].includes(key)) {
+        clear();
+    } else if (key == 'Enter') {
+        equalHandler();
+    } else if (key == '.' || key == ',') {
+        dotHandler();
+    } else if (key == 'n') {
+        negateHandler();
+    } else if (key == '%' || key == 'p') {
+        percentHandler();
+    } else if (key == 'r') {
+        sqrtHandler();
+    }
+});
