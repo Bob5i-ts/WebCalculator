@@ -61,9 +61,14 @@ function oprHandler(key) {
     } else if (n1() && !n2()) {
         sign(keyVal);
     } else if (n2() && !result()) {
-        n1(getResult());
-        sign(keyVal);
-        n2('');
+        let rsl = getResult().toString();
+        if (rsl.includes('zero')) {
+            result(rsl);
+        } else {
+            n1(rsl);
+            sign(keyVal);
+            n2('');
+        }
     } else if (result() && !result().includes('zero')) {
         let rsl = result().slice(2);
         clear();
@@ -75,7 +80,7 @@ $('.sign').click(oprHandler);
 
 function percentHandler() {
     const x = new Decimal(n1() || 0);
-    if (n1() && !n1().includes('zero') && !sign()) {
+    if (n1() && !sign()) {
         n1(x.div(100));
     } else if (n2() && !result()) {
         const y = new Decimal(n2());
@@ -86,10 +91,10 @@ $('.percent').click(percentHandler);
 
 function sqrtHandler() {
     if (!result()) {
-        if (n1() && !n1().includes('zero') && !sign()) {
+        if (n1() && !sign()) {
             const x = new Decimal(n1());
             n1(x.sqrt());
-        } else if (n2() && sign()) {
+        } else if (n2()) {
             const y = new Decimal(n2());
             n2(y.sqrt());
         }
