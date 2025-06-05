@@ -158,8 +158,10 @@ function negateHandler() {
 $('.negate').click(negateHandler);
 
 $(document).keydown(function (ev) {
-    ev.preventDefault();
     let key = ev.key;
+    if (key == 'Enter' || key == '/') {
+        ev.preventDefault();
+    }
     if (!isNaN(key) && key !== ' ') {
         digitHandler(key);
     } else if (['+', '-', '*', '/', '^', 'a', 's', 'x', 'd', 'e', 'm'].includes(key)) {
