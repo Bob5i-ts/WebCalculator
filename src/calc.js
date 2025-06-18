@@ -50,7 +50,6 @@ function digitHandler(key) {
         inputNum(n2, keyVal);
     }
 }
-$('.digit').click(digitHandler);
 
 function oprHandler(key) {
     const keyVal = $(this).text() || key;
@@ -76,7 +75,6 @@ function oprHandler(key) {
         sign(keyVal);
     }
 }
-$('.sign').click(oprHandler);
 
 function percentHandler() {
     const x = new Decimal(n1() || 0);
@@ -87,7 +85,6 @@ function percentHandler() {
         n2(x.times(y.div(100)));
     }
 }
-$('.percent').click(percentHandler);
 
 function sqrtHandler() {
     if (!result()) {
@@ -100,7 +97,6 @@ function sqrtHandler() {
         }
     }
 }
-$('.sqrt').click(sqrtHandler);
 
 function equalHandler() {
     sanitize();
@@ -108,9 +104,6 @@ function equalHandler() {
         result('= ' + getResult());
     }
 }
-$('.equal').click(equalHandler);
-
-$('.clear').click(clear);
 
 function delHandler() {
     if (result()) {
@@ -123,7 +116,6 @@ function delHandler() {
         n1(n1().slice(0, -1));
     }
 }
-$('.del').click(delHandler);
 
 function dotHandler() {
     if (!result()) {
@@ -138,7 +130,6 @@ function dotHandler() {
         }
     }
 }
-$('.dot').click(dotHandler);
 
 function toggleMinus(num) {
     const x = num();
@@ -155,6 +146,23 @@ function negateHandler() {
         }
     }
 }
+
+$('.digit').click(digitHandler);
+
+$('.sign').click(oprHandler);
+
+$('.percent').click(percentHandler);
+
+$('.sqrt').click(sqrtHandler);
+
+$('.equal').click(equalHandler);
+
+$('.clear').click(clear);
+
+$('.del').click(delHandler);
+
+$('.dot').click(dotHandler);
+
 $('.negate').click(negateHandler);
 
 $(document).keydown(function (ev) {
