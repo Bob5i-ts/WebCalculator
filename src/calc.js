@@ -28,12 +28,14 @@ function getResult() {
     if (opr == '/' && y == '0') {
         return 'Cannot divide by zero';
     }
-    if (opr == '+') return x.plus(y);
-    if (opr == '-') return x.minus(y);
-    if (opr == '*') return x.times(y);
-    if (opr == '/') return x.div(y);
-    if (opr == '^') return x.pow(y);
-    if (opr == 'mod') return x.mod(y);
+    let rsl;
+    if      (opr == '+') rsl = x.plus(y);
+    else if (opr == '-') rsl = x.minus(y);
+    else if (opr == '*') rsl = x.times(y);
+    else if (opr == '/') rsl = x.div(y);
+    else if (opr == '^') rsl = x.pow(y);
+    else if (opr == 'mod') rsl = x.mod(y);
+    return rsl.tosd(16).toString();
 }
 
 function inputNum(num, key) {
@@ -60,7 +62,7 @@ function oprHandler(key) {
     } else if (n1() && !n2()) {
         sign(keyVal);
     } else if (n2() && !result()) {
-        let rsl = getResult().toString();
+        let rsl = getResult();
         if (rsl.includes('zero')) {
             result(rsl);
         } else {
