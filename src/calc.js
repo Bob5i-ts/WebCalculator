@@ -10,15 +10,13 @@ function clear() {
     result('');
 }
 
-function sanitize() {
-    while ((n1().includes('.') && n1().endsWith('0')) || n1().endsWith('.')) {
-        n1(n1().slice(0, -1));
+function sanitize(num) {
+    let x = num();
+    while (x.includes('.') && x.endsWith('0') || x.endsWith('.')) {
+        x = x.slice(0, -1);
     }
-    while ((n2().includes('.') && n2().endsWith('0')) || n2().endsWith('.')) {
-        n2(n2().slice(0, -1));
-    }
-    if (n1() == '-') n1('0');
-    if (n2() == '-') n2('0');
+    if (x == '-' || x == '-0') x = '0';
+    num(x);
 }
 
 function getResult() {
@@ -55,13 +53,14 @@ function digitHandler(key) {
 
 function oprHandler(key) {
     const keyVal = $(this).text() || key;
-    sanitize();
     if (!n1()) {
         n1('0');
         sign(keyVal);
     } else if (n1() && !n2()) {
+        sanitize(n1);
         sign(keyVal);
     } else if (n2() && !result()) {
+        sanitize(n2);
         let rsl = getResult();
         if (rsl.includes('zero')) {
             result(rsl);
@@ -101,8 +100,8 @@ function sqrtHandler() {
 }
 
 function equalHandler() {
-    sanitize();
     if (n1() && n2()) {
+        sanitize(n2);
         result('= ' + getResult());
     }
 }
