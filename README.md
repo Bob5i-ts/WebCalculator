@@ -1,4 +1,8 @@
+### Web Calculator
+
 Simple graphical calculator made with jQuery.
+
+Uses **decimal.js-light** library for arbitrary-precision calculations.
 
 Supports mouse, touch and keyboard input.
 
