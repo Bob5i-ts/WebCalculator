@@ -29,8 +29,8 @@ function getResult() {
     let rsl;
     if      (opr == '+') rsl = x.plus(y);
     else if (opr == '-') rsl = x.minus(y);
-    else if (opr == '*') rsl = x.times(y);
-    else if (opr == '/') rsl = x.div(y);
+    else if (opr == '×') rsl = x.times(y);
+    else if (opr == '÷') rsl = x.div(y);
     else if (opr == '^') rsl = x.pow(y);
     else if (opr == 'mod') rsl = x.mod(y);
     return rsl.tosd(16).toString();
@@ -174,10 +174,10 @@ $(document).keydown(function (ev) {
     if (!isNaN(key) && key !== ' ') {
         digitHandler(key);
     } else if (['+', '-', '*', '/', '^', 'a', 's', 'x', 'd', 'e', 'm'].includes(key)) {
-        if (key == 'a') key = '+';
+        if      (key == 'a') key = '+';
         else if (key == 's') key = '-';
-        else if (key == 'x') key = '*';
-        else if (key == 'd') key = '/';
+        else if (key == '*' || key == 'x') key = '×';
+        else if (key == '/' || key == 'd') key = '÷';
         else if (key == 'e') key = '^';
         else if (key == 'm') key = 'mod';
         oprHandler(key);
