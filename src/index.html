@@ -5,32 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <script src="../libs/decimal.light.min.js"></script>
     <script src="calc.js" defer></script>
-    <title>Web calculator</title>
+    <title>Web Calculator</title>
 </head>
 
 <body>
-    <main>
+    <main class="calc-body">
         <fieldset class="display" disabled="true">
-            <input type="text" id="num1" placeholder="0">
-            <input type="text" id="sign" >
-            <input type="text" id="num2" >
-            <input type="text" id="equal" >
-            <input type="text" id="result" >
+            <input type="text" id="num1" placeholder="0" />
+            <input type="text" id="sign" />
+            <input type="text" id="num2" />
+            <input type="text" id="result" />
         </fieldset>
         <div class="keypad">
+            <button class="btn percent">%</button>
+            <button class="btn sqrt">&Sqrt;</button>
+            <button class="btn sign">^</button>
+            <button class="btn sign">mod</button>
+            <button class="btn del">&xlArr;</button>
             <button class="btn digit">7</button>
             <button class="btn digit">8</button>
             <button class="btn digit">9</button>
-            <button class="btn sign">/</button>
-            <button class="btn del">&xlArr;</button>
+            <button class="btn sign">&div;</button>
+            <button class="btn clear">C</button>
             <button class="btn digit">4</button>
             <button class="btn digit">5</button>
             <button class="btn digit">6</button>
-            <button class="btn sign">*</button>
-            <button class="btn clear">C</button>
+            <button class="btn sign">&times;</button>
             <button class="btn digit">1</button>
             <button class="btn digit">2</button>
             <button class="btn digit">3</button>
