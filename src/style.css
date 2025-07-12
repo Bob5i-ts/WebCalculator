@@ -1,16 +1,23 @@
-main {
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url(../libs/PressStart2P-Regular.ttf);
+}
+
+.calc-body {
     width: 600px;
     background-color: rgb(198, 198, 198);
     border-radius: 10px;
-    padding: 25px 0;
+    padding: 30px 0;
     margin: auto;
+    box-shadow: 1px 1px #787878, 2px 2px #787878;
 }
 
 .display {
     width: 472px;
     border-radius: 6px;
-    border-style: solid;
+    border-style: none;
     margin: 0 auto 18px auto;
+    box-shadow: inset 2px 2px 3px gray;
 }
 
 .display, input {
@@ -38,27 +45,32 @@ input {
     font-weight: bold;
     font-size: 18px;
     border-radius: 6px;
-    box-shadow: inset -2px -2px 3px 0px #8888888e;
+    box-shadow: inset -2px -2px 3px 0 #8888888e;
     border: 1px solid rgb(100, 100, 100)
 }
 .btn:hover {
     background-image: linear-gradient(#64646426, #1e1e1e33);
+    cursor: pointer;
 }
 
 .digit {
     background-color: #bbd1ee;
 }
 
-.sign {
+.sign, .percent, .sqrt {
     background-color: #29d6ce;
 }
 
 .del, .clear {
     background-color: #dcaaaa;
 }
+.clear {
+    grid-column: 5;
+    grid-row: 2/4;
+}
 
 .equal {
     grid-column: 5;
-    grid-row: 3/5;
+    grid-row: 4/6;
     background-color: #6bb86b;
 }
