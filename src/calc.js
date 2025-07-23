@@ -70,7 +70,7 @@ function inputNum(num, key) {
     num(x + key);
 }
 function digitHandler(ev, key) {
-    const btnVal = ev.target.textContent || key;
+    const btnVal = ev?.target.textContent || key;
     if (!sign()) {
         inputNum(n1, btnVal);
     } else if (!result()) {
@@ -79,7 +79,7 @@ function digitHandler(ev, key) {
 }
 
 function oprHandler(ev, key) {
-    const btnVal = ev.target.textContent || key;
+    const btnVal = ev?.target.textContent || key;
     if (!n1()) {
         n1('0');
         sign(btnVal);
@@ -199,7 +199,7 @@ document.addEventListener('keydown', function (ev) {
         ev.preventDefault();
     }
     if (!isNaN(key) && key !== ' ') {
-        digitHandler(key);
+        digitHandler(null, key);
     } else if (['+', '-', '*', '/', '^', 'a', 's', 'x', 'd', 'e', 'm'].includes(key)) {
         if      (key == 'a') key = '+';
         else if (key == 's') key = '-';
@@ -207,7 +207,7 @@ document.addEventListener('keydown', function (ev) {
         else if (key == '/' || key == 'd') key = '÷';
         else if (key == 'e') key = '^';
         else if (key == 'm') key = 'mod';
-        oprHandler(key);
+        oprHandler(null, key);
     } else if (key == 'Backspace') {
         delHandler();
     } else if (['Escape', 'c', 'Delete'].includes(key)) {
